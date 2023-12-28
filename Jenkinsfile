@@ -28,7 +28,7 @@ environment {
     					}
   				}
   		stage('stage3') {
-				agent { label 'agent2' }
+				agent { label 'tomcat' }
 				when {
 				allOf {
                 			expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
@@ -42,7 +42,7 @@ environment {
 				when {
                 		expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             			}
-				agent { label 'agent2' }
+				agent { label 'tomcat' }
     				steps {
       					sh 'echo "Build ID: ${BUILD_ID}"'
 					build 'demo'
